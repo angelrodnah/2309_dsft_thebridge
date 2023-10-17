@@ -1,1 +1,2 @@
-Pregunta
+class Tablero():
+	jugadores = 4
