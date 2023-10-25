@@ -130,7 +130,7 @@ Cómo crear una presentación efectiva, es decir, maximizar nuestra capacidad de
 - los datos son difíciles de memorizar.
 - quedamos a la merced del detalle.
 
-**¿Qué es una historía y por qué a las personas nos encantan?**
+**¿Qué es una historia y por qué a las personas nos encantan?**
 
 - Crea emoción y empatía.
 - Hace que seamos memorables.
