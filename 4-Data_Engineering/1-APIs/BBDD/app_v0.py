@@ -15,25 +15,52 @@ def all_books():
     return jsonify(books)
     
 # 2.Ruta para obtener un libro concreto mediante su id como parámetro en la llamada
-# @app.route('/v0/book_id', methods=['GET'])
-
-
+@app.route('/v0/book_id', methods=['GET'])
+def book_id():
+    id = int(request.args['id'])
+    results = [book for book in books if book["id"]==id]
+    return results
 
 
 # 3.Ruta para obtener un libro concreto mediante su título como parámetro en la llamada de otra forma
-# @app.route('/v0/book/<string:title>', methods=["GET"])
+@app.route('/v0/book/<string:title>', methods=["GET"])
+def book_title(title):
+    results = [book for book in books if book["title"].lower()==title.lower()]
+    return results
 
 
 # 4.Ruta para obtener un libro concreto mediante su titulo dentro del cuerpo de la llamada  
-# @app.route('/v1/book', methods=["GET"])
-    
+@app.route('/v1/book', methods=["GET"])
+def book_title_body():
+    title = request.get_json().get('title', None)
+    if not title:
+        return "Not a valid title in the request", 400
+    else:
+        results = [book for book in books if book["title"].lower()==title.lower()]
+        if results == []:
+            return "Book not found" , 400
+        else:
+            return results
 
 # 5.Ruta para añadir un libro mediante un json en la llamada
-
+@app.route('/v1/add_book', methods=["POST"])
+def post_books():
+    data = request.get_json()
+    books.append(data)
+    return books
 
 
 # 6.Ruta para añadir un libro mediante parámetros
- 
+@app.route('/v2/add_book', methods=["POST"])
+def post_books_v2():
+    book = {}
+    book['id'] = int(request.args['id'])
+    book['title'] = request.args['title']
+    book['author'] = request.args['author']
+    book['first_sentence'] = request.args['first_sentence']
+    book['published'] = request.args['published']
+    books.append(book)
+    return books
 
 # 7.Ruta para modificar un libro
 
