@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicción de Ventas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: auto;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Predicción de Ventas</h1>
+    <form action="/predict" method="post">
+        <label for="tv">Gasto en TV:</label>
+        <input type="text" id="tv" name="tv" placeholder="Gasto en TV">
+        
+        <label for="radio">Gasto en Radio:</label>
+        <input type="text" id="radio" name="radio" placeholder="Gasto en Radio">
+        
+        <label for="newspaper">Gasto en Periódico:</label>
+        <input type="text" id="newspaper" name="newspaper" placeholder="Gasto en Periódico">
+        
+        <input type="submit" value="Predecir Ventas">
+    </form>
+</body>
+</html>
